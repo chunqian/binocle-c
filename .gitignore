@@ -1,3 +1,4 @@
+build/cmake/gen
 build/macosx/gen
 build/windows/gen
 build/ios/gen
@@ -77,3 +78,6 @@ CTestTestfile.cmake
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
+# clangd
+.cache

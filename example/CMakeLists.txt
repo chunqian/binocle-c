@@ -120,6 +120,11 @@ if (APPLE)
                 XCODE_ATTRIBUTE_IPHONEOS_DEPLOYMENT_TARGET 8.0
                 RESOURCE "${RESOURCES}"
         )
+    else ()
+        set_target_properties(ExampleProject PROPERTIES
+                MACOSX_BUNDLE YES
+                MACOSX_BUNDLE_INFO_PLIST "${CMAKE_SOURCE_DIR}/build/macosx/Info.plist"
+        )
 
         # Copy resources
         #add_custom_command(
