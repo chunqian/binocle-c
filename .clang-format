@@ -1,4 +1,9 @@
-NamespaceIndentation: All
-ContinuationIndentWidth: 2
-IndentWidth: 2
-ConstructorInitializerIndentWidth: 2
+BasedOnStyle: Google
+AccessModifierOffset: -4
+IndentWidth: 4
+ColumnLimit: 160
+IndentPPDirectives: BeforeHash
+AlwaysBreakBeforeMultilineStrings: false
+TabWidth: 4
+UseTab: Never
+SortIncludes: false
