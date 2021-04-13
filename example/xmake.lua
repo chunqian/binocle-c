@@ -15,7 +15,8 @@ target("example")
         "vorbis",
         "ogg",
         "glew",
-        "lua"
+        "lua",
+        "newton"
         )
 
     -- after_build(function(target)
@@ -40,7 +41,6 @@ target("example")
         "$(projectdir)/src/deps/zlib",
         "$(projectdir)/src/deps/vorbis",
         "$(projectdir)/src/deps/sdl/include",
-        -- "$(projectdir)/src/deps/sdl_mixer",
         "$(projectdir)/src/deps/stb_image",
         "$(projectdir)/src/deps/kazmath",
         "$(projectdir)/src/deps/physfs",
@@ -54,7 +54,8 @@ target("example")
     if is_os("macosx") then
         add_includedirs(
             "$(projectdir)/src/deps/glew/include",
-            "$(projectdir)/src/deps/lua/src"
+            "$(projectdir)/src/deps/lua/src",
+            "$(projectdir)/src/deps/newton"
             )
     end
 
@@ -72,6 +73,7 @@ target("example")
         "ogg",
         "glew",
         "lua",
+        "newton",
         "binocle"
         )
 

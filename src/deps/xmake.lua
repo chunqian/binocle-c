@@ -15,5 +15,5 @@ if is_os("macosx") then
     includes("glew")
     -- includes("luajit")
     includes("lua")
-    -- includes("newton")
+    includes("newton")
 end
