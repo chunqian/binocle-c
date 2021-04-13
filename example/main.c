@@ -67,7 +67,7 @@ binocle_render_target *render_target;
 binocle_shader *screen_shader;
 
 #if defined(__APPLE__) && !defined(__IPHONEOS__)
-#define WITH_PHYSICS
+// #define WITH_PHYSICS
 #endif
 
 #ifdef WITH_PHYSICS

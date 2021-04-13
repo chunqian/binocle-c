@@ -81,3 +81,7 @@ CTestTestfile.cmake
 
 # clangd
 .cache
+
+# xmake
+.xmake
+xmake_build
