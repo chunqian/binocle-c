@@ -91,3 +91,10 @@ target("example")
     end
 
     add_cflags("-std=c99")
+
+    -- macos app
+    -- after_build(function(target)
+    --     os.cp("$(projectdir)/example/example.app", "$(buildir)/$(mode)/")
+    --     os.cp("$(projectdir)/assets/*", "$(buildir)/$(mode)/example.app/Contents/Resources/")
+    --     os.cp("$(buildir)/$(mode)/example", "$(buildir)/$(mode)/example.app/Contents/MacOS/")
+    -- end)
