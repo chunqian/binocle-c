@@ -32,5 +32,12 @@ target("binocle")
     if is_os("macosx") then
         add_files("core/PlayerPrefs.mm")
         
-        add_includedirs("$(projectdir)/src/deps/lua/src")
+        add_includedirs(
+            "$(projectdir)/src/deps/lua/src"
+            )
     end
+
+    -- after_build(function(target)
+    --     import("core.base.task")
+    --     task.run("project", {kind = "compile_commands"})
+    -- end)

@@ -1,31 +1,36 @@
 #ifdef WITH_PHYSICS
-#include <dgNewton/Newton.h>
+#include "physics.h"
+#include "binocle_log.h"
+// #include <dgNewton/Newton.h>
 
-NewtonWorld *world;
-NewtonBody *background_body;
-NewtonBody *ball_body;
-binocle_sprite *ball_sprite;
-bool dragging_ball;
-kmVec2 mouse_prev_pos;
+// NewtonWorld *world;
+// NewtonBody *background_body;
+// NewtonBody *ball_body;
+// binocle_sprite *ball_sprite;
+// bool dragging_ball;
+// kmVec2 mouse_prev_pos;
+
+#define DESIGN_WIDTH 320
+#define DESIGN_HEIGHT 240
 
 void create_barriers() {
   kmMat4 identity;
   kmMat4Identity(&identity);
 
   kmMat4 bottom_offset;
-  kmMat4Translation(&bottom_offset, DESIGN_WIDTH/2, -50, 0);
+  kmMat4Translation(&bottom_offset, DESIGN_WIDTH/2.0, -50, 0);
   NewtonCollision *coll_bottom = NewtonCreateBox(world, DESIGN_WIDTH, 100, 100, 0, &identity.mat[0]);
 
   kmMat4 top_offset;
-  kmMat4Translation(&top_offset, DESIGN_WIDTH/2, DESIGN_HEIGHT + 50, 0);
+  kmMat4Translation(&top_offset, DESIGN_WIDTH/2.0, DESIGN_HEIGHT + 50, 0);
   NewtonCollision *coll_top = NewtonCreateBox(world, DESIGN_WIDTH, 100, 100, 0, &identity.mat[0]);
 
   kmMat4 left_offset;
-  kmMat4Translation(&left_offset, -50, DESIGN_HEIGHT/2, 0);
+  kmMat4Translation(&left_offset, -50, DESIGN_HEIGHT/2.0, 0);
   NewtonCollision *coll_left = NewtonCreateBox(world, 100, DESIGN_HEIGHT, 100, 0, &identity.mat[0]);
 
   kmMat4 right_offset;
-  kmMat4Translation(&right_offset, DESIGN_WIDTH + 50, DESIGN_HEIGHT/2, 0);
+  kmMat4Translation(&right_offset, DESIGN_WIDTH + 50, DESIGN_HEIGHT/2.0, 0);
   NewtonCollision *coll_right = NewtonCreateBox(world, 100, DESIGN_HEIGHT, 100, 0, &identity.mat[0]);
 
   NewtonCreateDynamicBody(world, coll_bottom, &bottom_offset.mat[0]);

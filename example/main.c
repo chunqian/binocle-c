@@ -66,12 +66,13 @@ WrenHandle* method;
 binocle_render_target *render_target;
 binocle_shader *screen_shader;
 
-#if defined(__APPLE__) && !defined(__IPHONEOS__)
-#define WITH_PHYSICS
-#endif
+// #if defined(__APPLE__) && !defined(__IPHONEOS__)
+// #define WITH_PHYSICS
+// #endif
 
 #ifdef WITH_PHYSICS
-#include "physics.c"
+// #include "physics.c"
+#include "physics.h"
 #endif
 
 void wren_update(float dt) {

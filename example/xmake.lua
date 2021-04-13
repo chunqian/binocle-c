@@ -19,12 +19,11 @@ target("example")
         "newton"
         )
 
-    -- after_build(function(target)
-    --     import("core.base.task")
-    --     task.run("project", {kind = "compile_commands"})
-    -- end)
-
     set_targetdir("$(buildir)/$(mode)")
+
+    if is_os("macosx") then
+        add_defines("WITH_PHYSICS")
+    end
 
     add_files(
         "*.c",
@@ -92,9 +91,14 @@ target("example")
 
     add_cflags("-std=c99")
 
+    after_build(function(target)
+        import("core.base.task")
+        task.run("project", {kind = "compile_commands"})
+    end)
+
     -- macos app
-    -- after_build(function(target)
-    --     os.cp("$(projectdir)/example/example.app", "$(buildir)/$(mode)/")
-    --     os.cp("$(projectdir)/assets/*", "$(buildir)/$(mode)/example.app/Contents/Resources/")
-    --     os.cp("$(buildir)/$(mode)/example", "$(buildir)/$(mode)/example.app/Contents/MacOS/")
-    -- end)
+    after_build(function(target)
+        os.cp("$(projectdir)/example/example.app", "$(buildir)/$(mode)/")
+        os.cp("$(projectdir)/assets/*", "$(buildir)/$(mode)/example.app/Contents/Resources/")
+        os.cp("$(buildir)/$(mode)/example", "$(buildir)/$(mode)/example.app/Contents/MacOS/")
+    end)
