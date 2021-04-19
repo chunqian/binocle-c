@@ -84,4 +84,5 @@ CTestTestfile.cmake
 
 # xmake
 .xmake
-xmake_build
+xmake.Build
+xmake.XcodeMac
